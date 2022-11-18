@@ -1,17 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-void main() => runApp(CustomHeaders());
+void main() => runApp(const CustomHeaders());
 
 class CustomHeaders extends StatelessWidget {
+  const CustomHeaders({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MyApp(),
     );
@@ -19,6 +18,8 @@ class CustomHeaders extends StatelessWidget {
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   State<StatefulWidget> createState() => ScheduleExample();
 }
@@ -26,7 +27,7 @@ class MyApp extends StatefulWidget {
 class ScheduleExample extends State<MyApp> {
   String _headerText = 'Header';
   double _width = 0.0, _cellWidth = 0.0;
-  List<String> _dates = <String>['1', '2', '3', '4', '5', '6', '7'],
+  final List<String> _dates = <String>['1', '2', '3', '4', '5', '6', '7'],
       _days = <String>['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
   bool _selected = false;
   int _selectedIndex=0;
@@ -40,13 +41,13 @@ class ScheduleExample extends State<MyApp> {
           child: Column(
             children: <Widget>[
               Container(
-                color: Color(0xFF381460),
+                color: const Color(0xFF381460),
                 width: _width,
                 height: _cellWidth,
                 child: Center(
                   child: Text(_headerText,
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 25, color: Colors.white)),
+                      style: const TextStyle(fontSize: 25, color: Colors.white)),
                 ),
               ),
               Padding(
@@ -66,6 +67,7 @@ class ScheduleExample extends State<MyApp> {
                               children: [
                                 Container(
                                   height: _cellWidth,
+                                  width: _cellWidth,
                                   child: Center(
                                     child: Text(
                                       _days[index],
@@ -77,7 +79,6 @@ class ScheduleExample extends State<MyApp> {
                                       textAlign: TextAlign.center,
                                     ),
                                   ),
-                                  width: _cellWidth,
                                 ),
                               ],
                             ),
@@ -106,11 +107,6 @@ class ScheduleExample extends State<MyApp> {
                             child: Column(
                               children: [
                                 Container(
-                                  child: Text(
-                                    _dates[index],
-                                    style: TextStyle(color: Colors.black),
-                                    textAlign: TextAlign.center,
-                                  ),
                                   width: _cellWidth,
                                   decoration: _selected && _selectedIndex == index
                                       ? BoxDecoration(
@@ -119,6 +115,11 @@ class ScheduleExample extends State<MyApp> {
                                       border: Border.all(
                                           color: Colors.orange, width: 3))
                                       : null,
+                                  child: Text(
+                                    _dates[index],
+                                    style: const TextStyle(color: Colors.black),
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ),
                               ],
                             ),
@@ -133,7 +134,7 @@ class ScheduleExample extends State<MyApp> {
                   viewHeaderHeight: 0,
                   view: CalendarView.week,
                   onViewChanged: (ViewChangedDetails viewChangedDetails) {
-                    SchedulerBinding.instance!.addPostFrameCallback((duration) {
+                    SchedulerBinding.instance.addPostFrameCallback((duration) {
                       for (int i = 0;
                       i < viewChangedDetails.visibleDates.length;
                       i++) {
