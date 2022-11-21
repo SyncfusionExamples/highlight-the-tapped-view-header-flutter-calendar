@@ -2,9 +2,7 @@
 
 This example demonstrates how to highlight the tapped view header in the Flutter Calendar.
 
-
 By hiding the default headers and including the custom widgets, you can highlight the selected view header date and day in the Flutter Event Calendar.
-
 
 ## Higlighting the tapped view header
 
