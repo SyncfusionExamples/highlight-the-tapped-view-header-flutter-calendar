@@ -42,7 +42,7 @@ child: ListView.builder(
 
 ```
 
-
+![Highlight](https://user-images.githubusercontent.com/46158936/203063694-795bddb0-d521-4eae-ba4e-f871a9a31e93.gif)
 
 ## Requirements to run the demo
 * [VS Code](https://code.visualstudio.com/download)
