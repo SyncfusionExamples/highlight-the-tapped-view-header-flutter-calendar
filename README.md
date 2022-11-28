@@ -8,40 +8,6 @@ By hiding the default headers and including the custom widgets, you can highligh
 
 You can get the visible dates details from the [onViewChanged](https://pub.dev/documentation/syncfusion_flutter_calendar/latest/calendar/SfCalendar/onViewChanged.html) callback and using the ListView.builder widget load the view header text with GestureDetector. Then based on the selected index highlight the view header day and date text.
 
-```
-
-child: ListView.builder(
-    shrinkWrap: true,
-    itemCount: _days.length,
-    scrollDirection: Axis.horizontal,
-    itemBuilder: (BuildContext context, int index) {
-      return GestureDetector(
-        child: Container(
-          child: Column(
-            children: [
-              Container(
-                height: _cellWidth,
-                width: _cellWidth,
-                child: Center(
-                  child: Text(
-                    _days[index],
-                    style: TextStyle(
-                      color: _selected && _selectedIndex == index
-                          ? Colors.orange
-                          : Colors.black,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    }),
-
-```
-
 ![Highlight](https://user-images.githubusercontent.com/46158936/203063694-795bddb0-d521-4eae-ba4e-f871a9a31e93.gif)
 
 ## Requirements to run the demo
