@@ -1,4 +1,4 @@
-package com.example.minimum_appointmentduration
+package com.example.custom_headers
 
 import io.flutter.embedding.android.FlutterActivity
 
